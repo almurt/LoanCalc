@@ -31,8 +31,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llr-4I-zSS">
+                                <rect key="frame" x="8" y="256" width="304" height="304"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MYp-RQ-Dp5"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uAp-dG-N0s"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hiI-0C-5cP">
+                                <rect key="frame" x="8" y="178" width="304" height="32"/>
+                                <segments>
+                                    <segment title="Annuitet"/>
+                                    <segment title="Differentiated"/>
+                                </segments>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STq-Sj-Hdm">
-                                <rect key="frame" x="8" y="178" width="304" height="31"/>
+                                <rect key="frame" x="8" y="217" width="304" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
                                 <connections>
@@ -40,21 +55,16 @@
                                     <segue destination="uVy-2Q-gX2" kind="show" id="T8Z-DT-1Rc"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llr-4I-zSS">
-                                <rect key="frame" x="8" y="217" width="304" height="343"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MYp-RQ-Dp5"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uAp-dG-N0s"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hiI-0C-5cP" firstAttribute="top" secondItem="xoc-Rs-qfv" secondAttribute="bottom" constant="8" id="01I-Ue-MmM"/>
                             <constraint firstItem="iqx-JC-faa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="91m-Er-fPi"/>
                             <constraint firstItem="SKv-go-2fc" firstAttribute="top" secondItem="iqx-JC-faa" secondAttribute="bottom" constant="8" id="Bb1-aR-URD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKv-go-2fc" secondAttribute="trailing" constant="8" id="Mim-NW-2Lo"/>
+                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="top" secondItem="hiI-0C-5cP" secondAttribute="bottom" constant="8" id="OiS-iJ-hCL"/>
+                            <constraint firstItem="hiI-0C-5cP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="PgI-uH-9Za"/>
                             <constraint firstItem="SKv-go-2fc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Qix-5P-VEa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="llr-4I-zSS" secondAttribute="trailing" constant="8" id="Whe-gM-9JI"/>
                             <constraint firstItem="llr-4I-zSS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ZYG-TB-v9a"/>
@@ -64,14 +74,15 @@
                             <constraint firstItem="STq-Sj-Hdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="hUW-Sx-LFu"/>
                             <constraint firstItem="xoc-Rs-qfv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jD7-hP-dTe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="llr-4I-zSS" secondAttribute="bottom" constant="8" id="mIq-mN-GO5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hiI-0C-5cP" secondAttribute="trailing" constant="8" id="npZ-J0-lfv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xoc-Rs-qfv" secondAttribute="trailing" constant="8" id="opd-CE-Pqk"/>
-                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="top" secondItem="xoc-Rs-qfv" secondAttribute="bottom" constant="8" id="qjw-si-roM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iqx-JC-faa" secondAttribute="trailing" constant="8" id="tBk-g1-xg4"/>
                             <constraint firstItem="iqx-JC-faa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="wpP-FW-Xyj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mev-Ed-jGM"/>
                     <connections>
+                        <outlet property="calcMethodSegmentControl" destination="hiI-0C-5cP" id="hdz-xO-ehk"/>
                         <outlet property="monthsTxt" destination="SKv-go-2fc" id="Iun-kj-teF"/>
                         <outlet property="percentTxt" destination="xoc-Rs-qfv" id="V3D-Tc-wCb"/>
                         <outlet property="summaTxt" destination="iqx-JC-faa" id="ERs-9q-4KK"/>
@@ -81,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.01449275362324" y="105.80357142857143"/>
+            <point key="canvasLocation" x="969.375" y="105.63380281690141"/>
         </scene>
         <!--Loan Info View-->
         <scene sceneID="Nyu-a3-neU">

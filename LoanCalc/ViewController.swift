@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var monthsTxt: UITextField!
     @IBOutlet weak var percentTxt: UITextField!
     @IBOutlet weak var tblCalcs: UITableView!
+    @IBOutlet weak var calcMethodSegmentControl: UISegmentedControl!
     
     let fileManager = FileManager.default
     var fileUrl: URL?
@@ -73,7 +74,7 @@ class ViewController: UIViewController {
                 tblCalcs.reloadData()
             }
         } catch {
-            print("Erorr to load hidtory from CoreData")
+            print("Erorr to load history from CoreData")
         }
         
         getDB()
@@ -84,15 +85,24 @@ class ViewController: UIViewController {
         let months = atol(monthsTxt.text)
         let percent = atof(percentTxt.text)
         guard summa > 0 && months > 0 && percent > 0 else {return}
+        let calcMethod: (_ selectedSegment: Int) -> CalcMethod = { selectedSegment in
+            switch selectedSegment {
+            case 0:
+                return .annuitet
+            case 1:
+                return .differentiated
+            default:
+                return .annuitet
+            }
+        }
         
-        loan = Loan(summa: summa, months: months, percent: percent, method: .annuitet)
-        
+        loan = Loan(summa: summa, months: months, percent: percent, method: calcMethod(calcMethodSegmentControl.selectedSegmentIndex))
         // TODO: Сохраним в файл введенные данные. По требоанию ДЗ №4
         let savParams = LoanSavParams(summa: summa, months: months, percent: percent)
         let encoder = JSONEncoder()
         let dataToSavParams = try! encoder.encode(savParams)
         
-        if fileUrl != nil {
+            if fileUrl != nil {
             do {
                 try dataToSavParams.write(to: fileUrl!)
             } catch {

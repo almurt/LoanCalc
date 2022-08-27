@@ -47,7 +47,7 @@ extension LoanInfoView: UITableViewDelegate, UITableViewDataSource{
         let summa = loan?.graf[indexPath.row]
         
         cell.lblSumma.text = "\(String(summa?.month ?? 0)). \(String(summa?.monthlyPay.rounded(digits: 2) ?? 0.00))"
-        cell.lblMonthNum.text = "Main debth \(String(summa?.summaOd.rounded(digits: 2) ?? 0.0)). Fee \(String(summa?.summaFee.rounded(digits: 2) ?? 0.0))"
+        cell.lblMonthNum.text = "Main debth \(String(summa?.summMainDebt.rounded(digits: 2) ?? 0.0)). Fee \(String(summa?.summaFee.rounded(digits: 2) ?? 0.0))"
         cell.lblSumma.font = .sumFont()
         cell.backgroundColor = .Theme.TableResultColor
         

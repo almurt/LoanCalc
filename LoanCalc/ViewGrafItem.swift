@@ -19,7 +19,7 @@ class ViewGrafItem: UIViewController {
         lblMonthlyPayment.font = .cellFont()
         lblMonthlyPayment.text = "Monthly payment \(String(summs?.monthlyPay.rounded(digits: 2) ?? 0.0))"
         lblODSumm.font = .cellFont()
-        lblODSumm.text = "Main debth \(String(summs?.summaOd.rounded(digits: 2) ?? 0.0))"
+        lblODSumm.text = "Main debth \(String(summs?.summMainDebt.rounded(digits: 2) ?? 0.0))"
         lblFeeSumm.font = .cellFont()
         lblFeeSumm.text = "Fee amount \(String(summs?.summaFee.rounded(digits: 2) ?? 0.0))"
         // Do any additional setup after loading the view.

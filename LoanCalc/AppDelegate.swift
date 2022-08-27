@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let loan1 = Loan(summa: 10000, months: 24, percent: 20, method: .annuitet)
+        let loan2 = Loan(summa: 10000, months: 25, percent: 20, method: .annuitet)
+        let result = loan1 == loan2
+        print(result)
+        
         return true
     }
 
