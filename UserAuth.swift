@@ -9,7 +9,18 @@ import SwiftUI
 
 struct UserAuth: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        //Text("Login form")
+        VStack {
+            Text("User")
+                .badge("User Name")
+
+            Text("Password")
+                .badge("Password")
+            Button("Submit") {
+                print("I Know. It is no ready")
+            }
+
+        }
     }
 }
 
