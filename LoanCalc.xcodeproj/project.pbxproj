@@ -18,6 +18,7 @@
 		5052A0F52906935600205256 /* LoanKindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052A0F32906935600205256 /* LoanKindCell.swift */; };
 		5052A0F62906935600205256 /* LoanKindCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5052A0F42906935600205256 /* LoanKindCell.xib */; };
 		5052A0FB29069AF900205256 /* LoanKindsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052A0FA29069AF900205256 /* LoanKindsView.swift */; };
+		5052A0FF2906EC7900205256 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052A0FE2906EC7900205256 /* UserAuth.swift */; };
 		5094A98127DB3B23004B204F /* dewberry.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5094A98027DB3B23004B204F /* dewberry.ttf */; };
 		5094A98427DBD551004B204F /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5094A98227DBD551004B204F /* HistoryCell.swift */; };
 		5094A98527DBD551004B204F /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5094A98327DBD551004B204F /* HistoryCell.xib */; };
@@ -71,6 +72,7 @@
 		5052A0F32906935600205256 /* LoanKindCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanKindCell.swift; sourceTree = "<group>"; };
 		5052A0F42906935600205256 /* LoanKindCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanKindCell.xib; sourceTree = "<group>"; };
 		5052A0FA29069AF900205256 /* LoanKindsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanKindsView.swift; sourceTree = "<group>"; };
+		5052A0FE2906EC7900205256 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		5094A98027DB3B23004B204F /* dewberry.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dewberry.ttf; sourceTree = "<group>"; };
 		5094A98227DBD551004B204F /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		5094A98327DBD551004B204F /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 		50F9342527722827005B6FB5 = {
 			isa = PBXGroup;
 			children = (
+				5052A0FE2906EC7900205256 /* UserAuth.swift */,
 				50F9343027722827005B6FB5 /* LoanCalc */,
 				50F934472772282A005B6FB5 /* LoanCalcTests */,
 				50F934512772282A005B6FB5 /* LoanCalcUITests */,
@@ -426,6 +429,7 @@
 				5015B3BC27EA1A3000B3C885 /* NetworkError.swift in Sources */,
 				50F9343227722827005B6FB5 /* AppDelegate.swift in Sources */,
 				50F9343427722827005B6FB5 /* SceneDelegate.swift in Sources */,
+				5052A0FF2906EC7900205256 /* UserAuth.swift in Sources */,
 				50401BB32906693200377EC7 /* LoanKinds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

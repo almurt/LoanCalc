@@ -91,7 +91,14 @@
                             <constraint firstItem="iqx-JC-faa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="wpP-FW-Xyj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mev-Ed-jGM"/>
+                    <navigationItem key="navigationItem" id="mev-Ed-jGM">
+                        <barButtonItem key="rightBarButtonItem" title="Login" image="person" catalog="system" largeContentSizeImage="person" style="plain" id="jWT-Ag-BeV">
+                            <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="logInUser:" destination="BYZ-38-t0r" id="X5Q-3E-dpc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="calcMethodSegmentControl" destination="hiI-0C-5cP" id="hdz-xO-ehk"/>
                         <outlet property="monthsTxt" destination="SKv-go-2fc" id="Iun-kj-teF"/>
@@ -169,7 +176,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EUH-zz-QCK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Glf-J0-mdm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -269,8 +276,20 @@
             </objects>
             <point key="canvasLocation" x="1856" y="901"/>
         </scene>
+        <!--Hosting Controller-->
+        <scene sceneID="aFS-bh-WK5">
+            <objects>
+                <hostingController id="Ywt-Yv-Skg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ceH-3r-mC0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775" y="839"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="person" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

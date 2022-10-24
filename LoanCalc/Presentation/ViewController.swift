@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import SwiftUI
 
 class ViewController: UIViewController {
 
@@ -135,6 +136,12 @@ class ViewController: UIViewController {
         }
     }
 
+    
+    @IBAction func logInUser(_ sender: Any) {
+        let loginForm = UIHostingController(rootView: UserAuth())
+        navigationController?.pushViewController(loginForm, animated: true)
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
