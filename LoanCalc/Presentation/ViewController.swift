@@ -3,7 +3,7 @@
 //  LoanCalc
 //
 //  Created by Mukhtar Myrzakhanov on 21.12.2021.
-//
+// Main View Controller
 
 import UIKit
 import CoreData
@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         tblCalcs.register(UINib.init(nibName: historyCell, bundle: nil), forCellReuseIdentifier: historyCell)
         // Do any additional setup after loading the view.
         
-        // TODO: Возьмем входные параметры из файла. По требованиям ДЗ №4
+        // TODO: Возьмем входные параметры из файла
         if let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             fileUrl = url.appendingPathComponent("params").appendingPathExtension("json")
             if fileUrl != nil {
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             }
         }
         
-        // TODO: Соберем историю из CoreData. По требованиям ДЗ №4
+        // MARK: Соберем историю из CoreData
         let request = NSFetchRequest<NSManagedObject>(entityName: "LoanHist")
         self.history = [String]()
         do {
@@ -73,31 +73,37 @@ class ViewController: UIViewController {
             
                 tblCalcs.reloadData()
             }
-        } catch {
-            print("Erorr to load history from CoreData")
         }
         
-        getDB()
+        // MARK: подгрузим виды кредитов
+        let reqKinds = NSFetchRequest<NSManagedObject>(entityName: "LoanKinds")
+        self.history = [String]()
+        do {
+            if let cDataContext = CoredataMngr.shared.context{
+                if let cDataData = try? cDataContext.fetch(reqKinds){
+                    kindList.removeAll()
+                    for hist in cDataData{
+                        let kind = LoanKind(kind: hist.value(forKey: "kind") as! String, bank: hist.value(forKey: "bank") as! String, percent: hist.value(forKey: "percent") as! Double, firstPayPercent: hist.value(forKey: "firstPayPercent") as! Double)
+                        
+                        kindList.append(kind)
+                    }
+                }
+                tblCalcs.reloadData()
+            }
+        }
+        
+        //getDB()
     }
 
     @IBAction func calculate(_ sender: Any) {
         let summa = atof(summaTxt.text)
         let months = atol(monthsTxt.text)
         let percent = atof(percentTxt.text)
+        let calcMethod = CalcMethod(rawValue: calcMethodSegmentControl.selectedSegmentIndex) ?? .annuitet
         guard summa > 0 && months > 0 && percent > 0 else {return}
-        let calcMethod: (_ selectedSegment: Int) -> CalcMethod = { selectedSegment in
-            switch selectedSegment {
-            case 0:
-                return .annuitet
-            case 1:
-                return .differentiated
-            default:
-                return .annuitet
-            }
-        }
         
-        loan = Loan(summa: summa, months: months, percent: percent, method: calcMethod(calcMethodSegmentControl.selectedSegmentIndex))
-        // TODO: Сохраним в файл введенные данные. По требоанию ДЗ №4
+        loan = Loan(summa: summa, months: months, percent: percent, method: calcMethod)
+        // TODO: Сохраним в файл введенные данные
         let savParams = LoanSavParams(summa: summa, months: months, percent: percent)
         let encoder = JSONEncoder()
         let dataToSavParams = try! encoder.encode(savParams)
@@ -110,20 +116,19 @@ class ViewController: UIViewController {
             }
         }
         
-        // TODO: Сохраним в CoreData историю. По требованию ДЗ №4
+        // TODO: Сохраним в CoreData историю
         if let cDataContext = CoredataMngr.shared.context{
             if let entity = NSEntityDescription.entity(forEntityName: "LoanHist", in: cDataContext){
                 let histNote = NSManagedObject(entity: entity, insertInto: cDataContext)
                 histNote.setValue(summa, forKey: "summa")
                 histNote.setValue(months, forKey: "months")
                 histNote.setValue(percent, forKey: "percent")
+                histNote.setValue(calcMethod.rawValue, forKey: "calcMethod")
                 //histNote.setValue(loan?.method.rawValue ?? "NONE", forKey: "method")
                 do{
                     try? cDataContext.save()
                     self.history?.append("Summa \(summa)")
                     tblCalcs.reloadData()
-                } catch {
-                    print("Error to save into CoreData")
                 }
                 self.navigationController?.popViewController(animated: true)
             }

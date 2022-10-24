@@ -33,9 +33,9 @@ class LoanInfoView: UIViewController{
 }
 
 extension LoanInfoView: UITableViewDelegate, UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loan?.graf.count ?? 0

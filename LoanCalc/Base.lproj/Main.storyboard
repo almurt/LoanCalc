@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EUH-zz-QCK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EUH-zz-QCK">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,14 +31,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llr-4I-zSS">
-                                <rect key="frame" x="8" y="256" width="304" height="304"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STq-Sj-Hdm">
+                                <rect key="frame" x="8" y="260" width="304" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Calculate"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MYp-RQ-Dp5"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uAp-dG-N0s"/>
+                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7S4-oy-Vsa"/>
+                                    <segue destination="uVy-2Q-gX2" kind="show" id="T8Z-DT-1Rc"/>
                                 </connections>
-                            </tableView>
+                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hiI-0C-5cP">
                                 <rect key="frame" x="8" y="178" width="304" height="32"/>
                                 <segments>
@@ -46,37 +47,47 @@
                                     <segment title="Differentiated"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STq-Sj-Hdm">
-                                <rect key="frame" x="8" y="217" width="304" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrM-IS-JgL">
+                                <rect key="frame" x="8" y="217" width="304" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Calculate"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Select Credit Programm"/>
                                 <connections>
-                                    <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7S4-oy-Vsa"/>
-                                    <segue destination="uVy-2Q-gX2" kind="show" id="T8Z-DT-1Rc"/>
+                                    <segue destination="Sfn-Sz-hWh" kind="presentation" id="Qun-7A-UdB"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="llr-4I-zSS">
+                                <rect key="frame" x="8" y="302.5" width="304" height="257.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="MYp-RQ-Dp5"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="uAp-dG-N0s"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hiI-0C-5cP" firstAttribute="top" secondItem="xoc-Rs-qfv" secondAttribute="bottom" constant="8" id="01I-Ue-MmM"/>
+                            <constraint firstItem="llr-4I-zSS" firstAttribute="top" secondItem="STq-Sj-Hdm" secondAttribute="bottom" constant="8" id="8f4-IW-6X2"/>
                             <constraint firstItem="iqx-JC-faa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="91m-Er-fPi"/>
                             <constraint firstItem="SKv-go-2fc" firstAttribute="top" secondItem="iqx-JC-faa" secondAttribute="bottom" constant="8" id="Bb1-aR-URD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SKv-go-2fc" secondAttribute="trailing" constant="8" id="Mim-NW-2Lo"/>
-                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="top" secondItem="hiI-0C-5cP" secondAttribute="bottom" constant="8" id="OiS-iJ-hCL"/>
                             <constraint firstItem="hiI-0C-5cP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="PgI-uH-9Za"/>
                             <constraint firstItem="SKv-go-2fc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Qix-5P-VEa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="llr-4I-zSS" secondAttribute="trailing" constant="8" id="Whe-gM-9JI"/>
                             <constraint firstItem="llr-4I-zSS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="ZYG-TB-v9a"/>
                             <constraint firstItem="xoc-Rs-qfv" firstAttribute="top" secondItem="SKv-go-2fc" secondAttribute="bottom" constant="8" id="aEJ-7o-0Uv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="STq-Sj-Hdm" secondAttribute="trailing" constant="8" id="aRM-Qq-NCB"/>
-                            <constraint firstItem="llr-4I-zSS" firstAttribute="top" secondItem="STq-Sj-Hdm" secondAttribute="bottom" constant="8" id="fOm-Mj-0nG"/>
-                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="hUW-Sx-LFu"/>
+                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="top" secondItem="wrM-IS-JgL" secondAttribute="bottom" constant="8" id="c7h-T6-JIh"/>
+                            <constraint firstItem="wrM-IS-JgL" firstAttribute="top" secondItem="hiI-0C-5cP" secondAttribute="bottom" constant="8" id="f7n-UQ-HLu"/>
+                            <constraint firstItem="wrM-IS-JgL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="grd-nM-cnE"/>
                             <constraint firstItem="xoc-Rs-qfv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="jD7-hP-dTe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wrM-IS-JgL" secondAttribute="trailing" constant="8" id="ltn-Sn-HXu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="llr-4I-zSS" secondAttribute="bottom" constant="8" id="mIq-mN-GO5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hiI-0C-5cP" secondAttribute="trailing" constant="8" id="npZ-J0-lfv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xoc-Rs-qfv" secondAttribute="trailing" constant="8" id="opd-CE-Pqk"/>
+                            <constraint firstItem="STq-Sj-Hdm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="qA7-yb-xnO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iqx-JC-faa" secondAttribute="trailing" constant="8" id="tBk-g1-xg4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="STq-Sj-Hdm" secondAttribute="trailing" constant="8" id="ud1-jO-wJ1"/>
                             <constraint firstItem="iqx-JC-faa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="wpP-FW-Xyj"/>
                         </constraints>
                     </view>
@@ -158,7 +169,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EUH-zz-QCK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Glf-J0-mdm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -222,6 +233,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3t-yu-Ugo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2790" y="106"/>
+        </scene>
+        <!--Loan Kinds View-->
+        <scene sceneID="Hfd-jf-6Mf">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yr4-IA-MoF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Sfn-Sz-hWh" customClass="LoanKindsView" customModule="LoanCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NhA-Lr-59b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Xs-xk-mk6">
+                                <rect key="frame" x="8" y="8" width="304" height="532"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Sfn-Sz-hWh" id="s0q-Ib-EnO"/>
+                                    <outlet property="delegate" destination="Sfn-Sz-hWh" id="jCL-ac-XMS"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2P4-vQ-QeN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Xs-xk-mk6" firstAttribute="top" secondItem="2P4-vQ-QeN" secondAttribute="top" constant="8" id="4cM-7l-VbO"/>
+                            <constraint firstItem="2P4-vQ-QeN" firstAttribute="bottom" secondItem="4Xs-xk-mk6" secondAttribute="bottom" constant="8" id="4rr-i8-LsR"/>
+                            <constraint firstItem="2P4-vQ-QeN" firstAttribute="trailing" secondItem="4Xs-xk-mk6" secondAttribute="trailing" constant="8" id="vcD-aQ-pg1"/>
+                            <constraint firstItem="4Xs-xk-mk6" firstAttribute="leading" secondItem="2P4-vQ-QeN" secondAttribute="leading" constant="8" id="wKg-Cu-PeQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ygc-xF-DVD"/>
+                    <connections>
+                        <outlet property="tableViewKIndsList" destination="4Xs-xk-mk6" id="Ee6-xU-C5c"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1856" y="901"/>
         </scene>
     </scenes>
     <resources>

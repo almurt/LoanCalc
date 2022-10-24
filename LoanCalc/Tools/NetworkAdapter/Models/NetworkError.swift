@@ -9,8 +9,9 @@ import Foundation
 
 enum NetworkError: Error {
     case httpRequestError(String)
-    case wronResponseType
+    case wrongResponseType
     case wrongResponseStatus(Int)
     case responseParsingError
     case wrongUrl(String)
+    case dataIsAbsent
 }

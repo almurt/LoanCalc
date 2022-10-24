@@ -12,9 +12,9 @@ private struct Constants {
     let year = 12
 }
 
-enum CalcMethod: String {
-    case annuitet = "Аннуитет"
-    case differentiated = "Дифференцированный"
+enum CalcMethod: Int {
+    case annuitet = 0
+    case differentiated = 1
 }
 
 
